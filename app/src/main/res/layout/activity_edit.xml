@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.imagitor.app.viewmodel.EditImageViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".activity.EditActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagePreviewer"
+            loadImage="@{viewModel.imageUri}"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="@dimen/_5sdp"
+            android:rotation="@{viewModel.angle}"
+            app:layout_constraintBottom_toTopOf="@id/layoutButtons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonUndo"
+                style="@style/BaseButton"
+                android:drawableEnd="@drawable/ic_undo"
+                android:onClick="@{()->viewModel.undo()}"
+                android:text="@string/undo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/viewLine"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/viewLine"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/buttonUndo"
+                app:layout_constraintEnd_toStartOf="@id/buttonCrop"
+                app:layout_constraintStart_toEndOf="@id/buttonUndo"
+                app:layout_constraintTop_toTopOf="@id/buttonUndo" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonCrop"
+                style="@style/BaseButton"
+                android:drawableEnd="@drawable/ic_crop"
+                android:text="@string/crop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/viewLineSecond"
+                app:layout_constraintStart_toEndOf="@id/viewLine" />
+
+            <View
+                android:id="@+id/viewLineSecond"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/buttonCrop"
+                app:layout_constraintEnd_toStartOf="@id/buttonRotate"
+                app:layout_constraintStart_toEndOf="@id/buttonCrop"
+                app:layout_constraintTop_toTopOf="@id/buttonCrop" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonRotate"
+                style="@style/BaseButton"
+                android:drawableEnd="@drawable/ic_rotate"
+                android:onClick="@{()->viewModel.rotate()}"
+                android:text="@string/rotate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/viewLineThird"
+                app:layout_constraintStart_toEndOf="@id/viewLineSecond" />
+
+            <View
+                android:id="@+id/viewLineThird"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/buttonRotate"
+                app:layout_constraintEnd_toStartOf="@id/buttonSave"
+                app:layout_constraintStart_toEndOf="@id/buttonRotate"
+                app:layout_constraintTop_toTopOf="@id/buttonRotate" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonSave"
+                style="@style/BaseButton"
+                android:drawableEnd="@drawable/ic_save"
+                android:text="@string/save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/viewLineThird" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.imagitor.app.viewmodel.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".activity.HomeActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagePreviewer"
+            loadImage="@{viewModel.imageUri}"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="@dimen/_5sdp"
+            android:rotation="@{viewModel.angle}"
+            app:layout_constraintBottom_toTopOf="@id/layoutButtons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonTakeSelfie"
+                style="@style/BaseButton"
+                android:text="@string/btn_take_selfie"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingStart="0dp"
+                android:drawableEnd="@drawable/ic_selfie"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/viewLine"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/viewLine"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/buttonTakeSelfie"
+                app:layout_constraintEnd_toStartOf="@id/buttonGallery"
+                app:layout_constraintStart_toEndOf="@id/buttonTakeSelfie"
+                app:layout_constraintTop_toTopOf="@id/buttonTakeSelfie" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonGallery"
+                style="@style/BaseButton"
+                android:text="@string/btn_gallery"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingStart="0dp"
+                android:drawableEnd="@drawable/ic_gallery"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/viewLine" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

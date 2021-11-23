@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Imagitor" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSecondaryVariant">@color/blue</item>
+        <item name="colorOnSecondary">@color/blue</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/blue</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/blue</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+
+    <style name="CaptureImage" parent="Theme.MaterialComponents.NoActionBar">
+
+    </style>
+
+    <style name="BaseButton">
+        <item name="android:paddingEnd">@dimen/_8sdp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_bg_btn</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:drawableTint">@color/white</item>
+    </style>
+</resources>
